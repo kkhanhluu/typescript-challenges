@@ -23,10 +23,14 @@
 */
 
 /* _____________ Your Code Here _____________ */
-type Last<T extends any[]> = T extends [infer first, ...infer rest]
-  ? rest['length'] extends 1
-    ? rest[0]
-    : Last<rest>
+// type Last<T extends any[]> = T extends [infer first, ...infer rest]
+//   ? rest['length'] extends 1
+//     ? rest[0]
+//     : Last<rest>
+//   : never;
+
+type Last<T extends any[]> = T extends [...infer first, infer last]
+  ? last
   : never;
 
 /* _____________ Test Cases _____________ */
